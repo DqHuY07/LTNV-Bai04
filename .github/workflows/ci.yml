@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [uhuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout code
@@ -21,4 +21,4 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      - run: mvn clean test
+      - run: mvn -B clean test

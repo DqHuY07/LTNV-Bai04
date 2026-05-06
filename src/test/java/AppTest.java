@@ -9,7 +9,7 @@ public class AppTest {
   // Window dung \
   // Mac/Linux dung /
   public void testWindow() {
-    String path = "data\\input.txt";
+    String path = "data" + File.separator + "input.txt";
     File file = new File(path);
     assertTrue(file.exists());
   }

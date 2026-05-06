@@ -1,0 +1,24 @@
+name: ci.yml
+on:
+  push:
+  pull_request:
+jobs:
+  build:
+    runs-on: ${{matrix.os}}
+
+    strategy:
+      matrix:
+        os: [uhuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          version: '17'
+          cache: 'maven'
+
+      - run: mvn clean package
